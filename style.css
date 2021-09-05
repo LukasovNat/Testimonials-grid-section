@@ -6,11 +6,9 @@
 
   --color-lightGrey: hsl(0, 0%, 81%);
   --color-grayBlue: hsl(210, 46%, 95%);
-  --color-bordercircle: #f3c969;
+  --color-bordercircle: #935fa7;
 }
-/*1. "Verified Graduate" has the same color as the person's name with 50% opacity
-2. Review paragraphs inside the quotations have the same color as well, but are at 70% opacity
-font-family: 'Barlow Semi Condensed', sans-serif;*/
+
 *,
 ::before,
 ::after {
@@ -20,17 +18,18 @@ body {
   background-color: var(--color-lightGrey);
   font-size: 13px;
   font-family: 'Barlow Semi Condensed', sans-serif;
-  max-width: 1440px;
+  max-width: 1400px;
   margin: auto;
+  /*padding: 139px;*/
+  margin-top: 100px;
 }
 .card {
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 20px;
   margin: 15px;
 }
 img {
   border-radius: 50%;
-  border: var(--color-bordercircle) 5px solid;
 }
 .card--Daniel {
   background-color: var(--color-violet);
@@ -53,8 +52,76 @@ img {
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
 }
 .card__innerwrapper {
   margin-left: 15px;
+  padding-top: 15px;
   line-height: 0;
+}
+/*styling of font-color + font-weight*/
+.card--Daniel,
+.card--Jonathan,
+.card--Patrick {
+  color: var(--color-grayBlue);
+}
+.card .card--quotation {
+  border-radius: 0;
+  border: none;
+  position: absolute;
+  right: 9px;
+  top: -20px;
+  /*width: 110;
+  height: 108;*/
+  max-width: 100%;
+}
+.card__position {
+  font-size: 13px;
+  opacity: 50%;
+}
+.card__experience {
+  font-size: 22px;
+}
+.card__description {
+  opacity: 70%;
+  line-height: 1.5;
+}
+.card--Jeanette,
+.card--Kira {
+  color: var(--color-gray);
+}
+.card--Daniel img,
+.card--Patrick img {
+  border: var(--color-bordercircle) 3px solid;
+}
+/*------------------Grid section----------*/
+@media (min-width: 800px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 2;
+    gap: 5px;
+  }
+  .card--Daniel {
+    grid-column: 1 / 3;
+  }
+  .card--Kira {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+  .card--Jeanette {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  .card--Patrick {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+  }
+  .card__namewrapper {
+    position: relative;
+  }
+  .card .card--quotation {
+    position: absolute;
+    right: 50px;
+  }
 }
